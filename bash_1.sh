@@ -5,7 +5,7 @@ IFS='
 '
 BLUE='\033[34m' #Blue color
 NC='\033[0m' # No Color
-echo "Список файлов в ""$CUR_DIR"":\n"
+echo "Список файлов в $CUR_DIR:\n"
 
 i=0
 for str in $(ls -Al)
