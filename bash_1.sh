@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 ASKFILE=$1
 CUR_DIR=$PWD
 IFS='
@@ -15,9 +15,9 @@ do
 	  i=$((i + 1))
 	  continue
 	fi
-	file=$(echo $str | grep -oP '\S+$')
-	rights=$(echo $str | grep -oP '(?<=^.).{9}')
-	t_sym=$(echo $str | grep -oP '^.{1}')
+	file=$(echo "$str" | grep -oP '\S+$')
+	rights=$(echo "$str" | grep -oP '(?<=^.).{9}')
+	t_sym=$(echo "$str" | grep -oP '^.{1}')
 	case $t_sym in
 	  -)
 	   TYPE="Обычный файл               "
@@ -42,10 +42,10 @@ do
 	   ;;
 	esac
 	res="$i Права: $rights \t$TYPE\t"
-	if [ $TYPE = "Каталог                    " ]; then res="$res$BLUE";fi
+	if [ "$TYPE" = "Каталог                    " ]; then res="$res$BLUE";fi
 	res="$res $file $NC"
 	i=$((i+1))
-	echo $res
+	echo "$res"
 done
 
 if  [ "$ASKFILE" != "" ]; then
