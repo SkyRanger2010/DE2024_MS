@@ -3,11 +3,12 @@ ASKFILE=$1
 CUR_DIR=$PWD
 IFS='
 '
-BLUE='\033[34m' #Blue color
-NC='\033[0m' # No Color
-echo "Список файлов в $CUR_DIR:\n"
+echo -e "Список файлов в $CUR_DIR:\n"
 
 i=0
+
+
+
 for str in $(ls -Al)
 do
 	if [ $i -eq 0 ]
@@ -42,10 +43,9 @@ do
 	   ;;
 	esac
 	res="$i Права: $rights \t$TYPE\t"
-	if [ "$TYPE" = "Каталог                    " ]; then res="$res$BLUE";fi
-	res="$res $file $NC"
+	res="$res $file"
 	i=$((i+1))
-	echo "$res"
+	echo -e "$res"
 done
 
 if  [ "$ASKFILE" != "" ]; then
