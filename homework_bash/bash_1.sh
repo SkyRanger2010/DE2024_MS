@@ -55,5 +55,6 @@ if  [ "$ASKFILE" != "" ]; then
 	else
     		echo "Файл '$ASKFILE' не найден в текущем каталоге."
 	fi
-	echo
+
 fi
+	echo
