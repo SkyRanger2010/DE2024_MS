@@ -25,9 +25,11 @@ function check_memory_usage() {
     echo "Текущее использование памяти: $memory_usage%" >> "$log_file" 2>&1
 
     if (( $(echo "$memory_usage > 80.0" | bc -l) )); then
-        echo "Внимание: Использование памяти превышает 80%!" >> "$log_file" 2>&1
-        echo "Текущие процессы, потребляющие больше всего памяти:" >> "$log_file" 2>&1
-        ps aux --sort=-%mem | awk 'NR<=10' >> "$log_file" 2>&1
+        {
+        echo "Внимание: Использование памяти превышает 80%!"
+        echo "Текущие процессы, потребляющие больше всего памяти:"
+        ps aux --sort=-%mem | awk 'NR<=10'
+        } >> "$log_file" 2>&1
     fi
 }
 
